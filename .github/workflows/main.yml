@@ -69,12 +69,12 @@ jobs:
         uses: Azure/k8s-deploy@v1.3
         with:
           manifests: |
-            ./src/k8s/mongodb/deployment.yaml
-            ./src/k8s/mongodb/service.yaml
+            k8s/mongodb/deployment.yaml
+            k8s/mongodb/service.yaml
 
       - name: Deploy WebAoi
         uses: Azure/k8s-deploy@v1.3
         with:
           images: ${{ secrets.DOCKERHUB_USER }}/api-bootcamp-produto:${{ github.run_number }}
           manifests: |
-            ./src/k8s/api/deployment.yaml
+            k8s/api/deployment.yaml
